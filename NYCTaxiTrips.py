@@ -1,43 +1,44 @@
 import csv
-import pandas as pd
 import datetime
 
 
-def readcsv():
+def ReadCsv():
     fl=open(csvname,'r')
     reader=csv.reader(fl)
-    Tlen=0
+    n = 0
     for row in reader:
-        #print(row)
-        Tlen+=1
-    print(Tlen)
+        if n < 6:
+           print (row)
+        n+=1
+    return (reader)
 
-def ReadCsv():
-    return(pd.read_csv(csvname))
-    #print(pd_resultset)
-    #print(len(pd_resultset))
 
-def question1(df):
-    ''' Question 1 '''
-    print("##### Question 1 ##### ")
-    print(len(df))
-    ##print (df.head(10))
-    print(f"Min pickup time: {df.pickup_datetime.min()}")
-    print(f"Max pickup time: {df.pickup_datetime.max()}")
-    print(f"Min dropoff time: {df.dropoff_datetime.min()}")
-    print(f"Max dropoff time: {df.dropoff_datetime.max()}")
-    print(f"Datetime Range between: {df.pickup_datetime.min()} and {df.dropoff_datetime.max()} ")
-
-def question2(df):
-    ''' Question 2 '''
-    print ("##### Question 2 ##### ")
-    print(f"Number of columns: {len(list(df.columns.values))}")
-    print(list(df.columns.values))
-
-def question3(df):
-    ''' Question 3 '''
-    print ("##### Question 3 ##### ")
-    print(df.head(5).to_string())
+def question1(data):
+    '''Question 1 -
+        What datetime range does your data cover?  How many rows are there total '''
+    len=0
+    n=0
+    min_pickup = None
+    max_dropoff = None
+    for row in data:
+        if n >0:
+            dto= None
+            len+=1
+            try:
+                dto = datetime.datetime.strptime(row[5],'%Y-%m-%d %H:%M:%S')
+                dts = datetime.datetime.strptime(row[6],'%Y-%m-%d %H:%M:%S')
+            except Exception as e:
+                print (e)
+            if dto is not None :
+                if min_pickup is None or dto < min_pickup:
+                    min_pickup = dto
+                if max_dropoff is None or dts > max_dropoff:
+                    max_dropoff = dts
+        n+=1
+    print(f"Number of rows in the dataset:{len}")
+    #print(f"Min PickUp date: {min_pickup} ")
+    #print(f"Max DropOff date: {max_dropoff} ")
+    print(f"Time Range {min_pickup} between {max_dropoff} ")
 
 
 
@@ -45,9 +46,7 @@ csvname="trip_data_1.csv"
 if __name__ == '__main__':
     #readcsv()
     starttime=datetime.datetime.now()
-    pd_resultset=ReadCsv()
-    question1(pd_resultset)
-    question2(pd_resultset)
-    question3(pd_resultset)
+    Dataset=ReadCsv()
+    question1(Dataset)
     endtime=datetime.datetime.now()-starttime
     print(f"{endtime} : Time Taken")

@@ -56,4 +56,7 @@
 
 '' Question 8
 
+    {'passenger_count': {'min': 0, 'max': 4.0}}
+    {'trip_time_in_secs': {'min': 0, 'max': 382.0}}
+    {'trip_distance': {'min': 0, 'max': 1.0}}
 ''

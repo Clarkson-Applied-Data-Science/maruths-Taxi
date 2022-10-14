@@ -26,6 +26,10 @@ def question1(df):
     print(f"Max pickup time: {df.pickup_datetime.max()}")
     print(f"Min dropoff time: {df.dropoff_datetime.min()}")
     print(f"Max dropoff time: {df.dropoff_datetime.max()}")
+    print(f"Min pickup_longitude: {df.pickup_longitude.min()}")
+    print(f"Max pickup_longitude: {df.pickup_longitude.max()}")
+    print(f"Min pickup_latitude: {df.pickup_latitude.min()}")
+    print(f"Max pickup_latitude: {df.pickup_latitude.max()}")
     print(f"Datetime Range between: {df.pickup_datetime.min()} and {df.dropoff_datetime.max()} ")
 
 def question2(df):

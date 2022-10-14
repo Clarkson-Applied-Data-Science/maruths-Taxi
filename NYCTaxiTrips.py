@@ -182,7 +182,7 @@ def question8():
             dict['min'] = min_h
             dict['max'] = max_h
         distinctValues[H] = dict
-    print (distinctValues)
+        print (distinctValues)
 
 
 

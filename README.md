@@ -48,3 +48,12 @@
 
 '' Question 6: 
 ''
+
+''Question 7: What are the distinct values for each field? (If applicable)
+    
+    {'vendor_id': ['CMT', 'VTS'], 'rate_code': ['1', '2', '4', '5', '3', '6', '8', '0', '210', '28', '7', '9', '65', '128'], 'store_and_fwd_flag': ['N', 'Y', ''], 'passenger_count': ['4', '1', '2', '3', '5', '6', '0', '208', '9', '255']}
+''
+
+'' Question 8
+
+''

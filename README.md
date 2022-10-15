@@ -73,3 +73,9 @@
     Created 14776 separate file - Uploaded only the last file split_file_14776.csv
 
 ''
+
+''Question 11 - 
+
+    ran the Avg calcuation with split_file_14776.csv
+![This is an image](./img_1.png)
+''

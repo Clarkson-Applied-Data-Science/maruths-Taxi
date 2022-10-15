@@ -185,7 +185,7 @@ def question8():
         print (distinctValues)
 
 def question9():
-    fl = open(csvname, 'r')
+    fl = open("split_file_14776.csv", 'r')
     data = csv.reader(fl)
     hrs=[]
     n =0
@@ -263,7 +263,7 @@ if __name__ == '__main__':
     ##question6()
     ##question7()
     ##question8()
-    ##question9()
-    question10()
+    question9()
+    ##question10()
     endtime=datetime.datetime.now()-starttime
     print(f"{endtime} : Time Taken")

@@ -219,6 +219,38 @@ def question9():
         print(fdict)
     print (fdict)
 
+def question10():
+    fl = open(csvname, 'r')
+    data = csv.reader(fl)
+    n=0
+    linecnt=0
+    filecnt=1
+    tmpdata=[]
+    for row in data:
+        if n == 0:
+            header = row
+            print (header)
+        elif n > 0:
+            fname = (f"split_file_{filecnt}.csv")
+            tmpdata.append(row)
+            linecnt += 1
+            #print(linecnt)
+            if linecnt == 1000:
+                #print(linecnt)
+                writetocsv(tmpdata, fname,header)
+                filecnt +=1
+                fname = (f"split_file_{filecnt}")
+                linecnt=0
+                tmpdata=[]
+            #fname=(f"split_file_{filecnt}")
+        n+=1
+
+def writetocsv(wdata,fname,header):
+    with open(fname, 'w', encoding='UTF8', newline='') as fw:
+        writer = csv.writer(fw)
+        writer.writerow(header)
+        writer.writerows(wdata)
+
 
 
 csvname="trip_data_1.csv"
@@ -231,6 +263,7 @@ if __name__ == '__main__':
     ##question6()
     ##question7()
     ##question8()
-    question9()
+    ##question9()
+    question10()
     endtime=datetime.datetime.now()-starttime
     print(f"{endtime} : Time Taken")

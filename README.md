@@ -43,10 +43,12 @@
     Min and Max of Pickup_Longitude :-98.866356 and 80.842125 
     Min and Max of Pickup_Latitude :-39.762348 and 82.514046 
     Min and Max of dropoff_Longitude :-98.75 and 84.315735 
-    Min and Max of dropoff_Longitude :-0.56333297 and 83.516693 
+    Min and Max of dropoff_Latitude :-0.56333297 and 83.516693 
+
+ - Got the min and  max for longitude or Latitude , While trying to map got like invalid coordinates
 ''
 
-'' Question 6: 
+'' Question 6:  - Sorry, I got error in the formula, i spent lot of time to fix it but couldn't
 ''
 
 ''Question 7: What are the distinct values for each field? (If applicable)

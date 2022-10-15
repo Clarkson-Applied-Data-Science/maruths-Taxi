@@ -184,6 +184,41 @@ def question8():
         distinctValues[H] = dict
         print (distinctValues)
 
+def question9():
+    fl = open(csvname, 'r')
+    data = csv.reader(fl)
+    hrs=[]
+    n =0
+    fdict={}
+    for row in data:
+        if n > 0:
+            d = datetime.datetime.strptime(row[5],'%Y-%m-%d %H:%M:%S')
+            hour = str(d.time())[0:2]
+            if hour not in hrs:
+                hrs.append(hour)
+        n+=1
+    print(hrs)
+    for h in hrs:
+        print(h)
+        fl = open(csvname, 'r')
+        data = csv.reader(fl)
+        n=0
+        cnt=0
+        passsum=0
+        for row in data:
+            if n > 0:
+                d = datetime.datetime.strptime(row[5], '%Y-%m-%d %H:%M:%S')
+                hour = str(d.time())[0:2]
+                if hour == h:
+                    cnt+=1
+                    passcnt = int(row[7])
+                    passsum = passsum + passcnt
+            n+=1
+        passavg = passsum / cnt
+        fdict[h]=passavg
+        print(fdict)
+    print (fdict)
+
 
 
 csvname="trip_data_1.csv"
@@ -195,6 +230,7 @@ if __name__ == '__main__':
     #question5()
     ##question6()
     ##question7()
-    question8()
+    ##question8()
+    question9()
     endtime=datetime.datetime.now()-starttime
     print(f"{endtime} : Time Taken")
